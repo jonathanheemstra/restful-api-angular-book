@@ -1,0 +1,27 @@
+{
+  "name": "restful-api-angular-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:prepare": "gitbook install",
+    "docs:start": "npm run docs:prepare && gitbook serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanheemstra/restful-api-angular-book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonathanheemstra/restful-api-angular-book/issues"
+  },
+  "homepage": "https://github.com/jonathanheemstra/restful-api-angular-book#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.0"
+  }
+}
