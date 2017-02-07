@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>File Structure Outline | Building a RESTful API and Angular App.</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1" data-chapter-title="File Structure Outline" data-filepath="docs/FILESSTRUCTURE.md" data-basepath=".." data-revision="Mon Feb 06 2017 21:44:14 GMT-0800 (PST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="docs/FILESSTRUCTURE.html">
+            
+                
+                    <a href="../docs/FILESSTRUCTURE.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        File Structure Outline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> Package.json Summary</span>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Building a RESTful API and Angular App.</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="file-structure-outline">File Structure Outline</h1>
+<p>Below is a the file tree structure for both the <strong>Backend</strong> and the <strong>Frontend</strong>.
+I will reference this file structure in future parts of this book.</p>
+<h2 id="backend">Backend</h2>
+<h3 id="directory-structure">Directory Structure</h3>
+<p><strong>data</strong>:</p>
+<p><strong>lib</strong>: The <em>lib</em> directory contains two types of files: middleware, and supporting functionality.</p>
+<ul>
+<li>Middleware functions (typically named <code>*-middleware.js</code> and is specific to <em>Express</em>) are functions that have access to the request object (req), the response object (res), and the next middleware function in the application&#x2019;s request-response cycle. The next middleware function is commonly denoted by a variable named <code>next();</code>. <a href="http://expressjs.com/en/guide/writing-middleware.html" target="_blank"><sup>express docs</sup></a> <a href="http://expressjs.com/en/guide/using-middleware.html" target="_blank"><sup>express docs</sup></a></li>
+<li>Supporting Functionality do not typically have access to the request/response objects like middleware and are used to abstract away functionality that needs to be called repeatedly throughout an app. For instance: <code>fuzzy-query</code> is used in both <code>gallery-router.js</code> and <code>pic-router.js</code> so instead of writing it&apos;s functionality into the router as part of the promise chain it is abstracted out.</li>
+</ul>
+<p><strong>model</strong>: The <em>model</em> directory contains the mongoose/MonogoDB Schemas.</p>
+<ul>
+<li>Schemas are provided by MongooseJS and maps to a MongoDB collection and defines the shape of the documents within that collection. <a href="http://mongoosejs.com/docs/guide.html" target="_blank"><sup>Mongoose docs</sup></a></li>
+<li><a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection" target="_blank">MongoDB collection</a> is a grouping of MongoDB documents. A collection is the equivalent of an relational database management system (RDBMS a.k.a. SQL) table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose. <a href="https://docs.mongodb.com/manual/core/data-modeling-introduction/" target="_blank"><sup>MongoDB docs</sup></a></li>
+</ul>
+<p><strong>route</strong>: The <em>route</em> directory contains all of the routes logic or any required express routes used by the api.</p>
+<ul>
+<li>Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on). Each route can have one or more handler functions, which are executed when the route is matched. Typically each router should line up with each schema in the model directory. <a href="http://expressjs.com/en/starter/basic-routing.html" target="_blank"><sup>express docs</sup></a></li>
+</ul>
+<p><strong>test</strong>: The <em>test</em> directory is where all the test files are located.</p>
+<ul>
+<li>Test files are typically named <code>*-test.js</code></li>
+</ul>
+<p><strong>test/data</strong>: The <em>test/data</em> directory contains any mock data that may be used within a test.</p>
+<ul>
+<li>Typically the mock data that contained in the <em>test/data</em> directory is static and does not contain any functions or logic. In the slugram app the only file located in the <em>test/data</em> directory is an image used specifically for testing in <code>pic-router-test.js</code>.</li>
+</ul>
+<p><strong>test/lib</strong>: The <em>test/lib</em> directory contains mocking files used to set up data before testing is run.</p>
+<ul>
+<li>Mocking files serve a similar function to middleware and can be required in anywhere and are used to set up and manipulate data prior to the tests running. An example of this would be the <code>test-env.js</code> file which sets some fake env variables that will be needed later in the testing.</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code>&#x251C;&#x2500;&#x2500; data
+&#x251C;&#x2500;&#x2500; lib
+&#x2502;   &#x251C;&#x2500;&#x2500; basic-auth-middleware.js
+&#x2502;   &#x251C;&#x2500;&#x2500; bearer-auth-middleware.js
+&#x2502;   &#x251C;&#x2500;&#x2500; error-middleware.js
+&#x2502;   &#x251C;&#x2500;&#x2500; fuzzy-query.js
+&#x2502;   &#x251C;&#x2500;&#x2500; fuzzy-regex.js
+&#x2502;   &#x251C;&#x2500;&#x2500; item-query-middleware.js
+&#x2502;   &#x251C;&#x2500;&#x2500; page-query-middleware.js
+&#x2502;   &#x2514;&#x2500;&#x2500; s3-upload-promise.js
+&#x251C;&#x2500;&#x2500; model
+&#x2502;   &#x251C;&#x2500;&#x2500; gallery.js
+&#x2502;   &#x251C;&#x2500;&#x2500; pic.js
+&#x2502;   &#x2514;&#x2500;&#x2500; user.js
+&#x251C;&#x2500;&#x2500; npm-debug.log
+&#x251C;&#x2500;&#x2500; package.json
+&#x251C;&#x2500;&#x2500; route
+&#x2502;   &#x251C;&#x2500;&#x2500; auth-router.js
+&#x2502;   &#x251C;&#x2500;&#x2500; gallery-router.js
+&#x2502;   &#x2514;&#x2500;&#x2500; pic-router.js
+&#x251C;&#x2500;&#x2500; server.js
+&#x2514;&#x2500;&#x2500; test
+    &#x251C;&#x2500;&#x2500; auth-router-test.js
+    &#x251C;&#x2500;&#x2500; data
+    &#x2502;   &#x2514;&#x2500;&#x2500; shield.png
+    &#x251C;&#x2500;&#x2500; error-middleware-test.js
+    &#x251C;&#x2500;&#x2500; fuzzy-query-test.js
+    &#x251C;&#x2500;&#x2500; fuzzy-regex-test.js
+    &#x251C;&#x2500;&#x2500; gallery-router-test.js
+    &#x251C;&#x2500;&#x2500; lib
+    &#x2502;   &#x251C;&#x2500;&#x2500; aws-mocks.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; clean-db.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; everything-mock.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; gallery-mock.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; mock-many-gallerys.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; mock-many-pics.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; mock-many-users.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; pic-mock.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; server-ctrl.js
+    &#x2502;   &#x251C;&#x2500;&#x2500; test-env.js
+    &#x2502;   &#x2514;&#x2500;&#x2500; user-mock.js
+    &#x251C;&#x2500;&#x2500; pic-router-test.js
+    &#x2514;&#x2500;&#x2500; s3-upload-promise-test.js
+</code></pre><h2 id="front-end">Front End</h2>
+<h3 id="directory-structure">Directory Structure</h3>
+<p><strong>app</strong>: The <em>app</em> directory is the root directory for any angular application. The <em>app</em> directory will contain all of the project files and must include the <code>index.html - (required name)</code> file as well as the <code>entry.js - (non-required name)</code> file from which the app will be built. The directory does not need to be named app but for the sake of making it clear what the folder contains app is used since it is the most semantic name. <a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure#a-better-structure-and-foundation" target="_blank"><sup>scotch.io article</sup></a></p>
+<p><strong>app/assets</strong>: The <em>app/assets</em> directory is used to hold any static files (i.e. images, videos, etc.) that need to be accessed by the application. The directory can contain any number of sub-directories as required. It is important to keep the directory structure semantic since these files will be used throughout the application.</p>
+<p><strong>app/component</strong>: The <em>app/component</em> directory is specifically intended to contain the all of the component files. There are several ways in which to organize the component directory and it will differ from project to project. One best practice suggestion is to <a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure#a-better-structure-and-foundation" target="_blank">treat each component as a mini Angular app</a> where all the services, controller, view, and style files all live within their own named sub-directory in the component directory. This works particularly well if there are components within the application that are the sole consumers of a specific service (i.e. login or sigup).</p>
+<p>Alternatively the app I built is structured slightly differently with components being being split into sub-directories with potentially more sub-directories inside of those. The intention is to break down each component into very small, moduler pieces that include only the necessary code to make each component work. <em><strong>At it&apos;s base level each controller should contain 3 files, a <code>JS</code> file for logic, an <code>HTML</code> file that where the component will be used, and a <code>SCSS/CSS</code> file for controlling styles only on that controller.</strong></em></p>
+<p><a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure" target="_blank">scotch.io article on best practices for Angular app file structure</a></p>
+<p><strong>app/config</strong>: The <em>app/config</em> directory should only config files. Config files get executed during the provider registrations and configuration phase. Only providers and constants can be injected into configuration blocks. This is to prevent accidental instantiation of services before they have been fully configured. <a href="https://docs.angularjs.org/guide/module#module-loading-dependencies" target="_blank"><sup>angular docs</sup></a></p>
+<p>In the case of the application I built the config files set up and export the routes available to the application.</p>
+<p><strong>app/scss</strong>: The <em>app/scss</em> directory holds all of the generic (i.e. non-controller) specific styling for the application. This directory can contain as many sub-directories but typically a <a href="https://smacss.com/" target="_blank">SMACSS</a> type structure is a good rule to follow.</p>
+<p><strong>app/service</strong>: The <em>app/service</em> directory should only contain the services files. However, based on how large the application is or depending on design preference it is reasonable to not have a service file. Alternatively it&apos;s also reasonable to put globally used services in an <em>app/service</em> directory while all other controller/component specific services are placed in the same folder as the controller/component that consumes that file.</p>
+<p><a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure" target="_blank">scotch.io article on best practices for Angular app file structure</a></p>
+<p><strong>app/view</strong>: The <em>app/view</em> directory should hold the files needed to run each view. Views should line up with the routes specified in the files located within the <em>app/config</em> directory. The <em>app/view</em> directory can contain as many sub-directories as required to account for all routes. <em><strong>At it&apos;s base level each view should contain 3 files, a <code>JS</code> file for logic, an <code>HTML</code> file for that view (typically this will consume components), and a <code>SCSS/CSS</code> file for controlling styles only on that view.</strong></em></p>
+<p><strong>test</strong>: The <em>test</em> directory for Angular serves the same purpose as it does for the backend api. It&apos;s important to note that the test directory should not be included in the <em>app</em> directory but should be instead located at the root of the repo.</p>
+<h4 id="example">Example</h4>
+<pre><code>&#x251C;&#x2500;&#x2500; app
+&#x2502;   &#x251C;&#x2500;&#x2500; assets
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; img
+&#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; cf-logo.png
+&#x2502;   &#x251C;&#x2500;&#x2500; component
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; gallery
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; create-gallery
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _create-gallery.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; create-gallery.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; create-gallery.js
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; edit-gallery
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _edit-gallery.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; edit-gallery.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; edit-gallery.js
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; gallery-item
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _gallery-item.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; gallery-item.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; gallery-item.js
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; thumbnail
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _thumbnail.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; thumbnail.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; thumbnail.js
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; thumbnail-container
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _thumbnail-container.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; thumbnail-container.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; thumbnail-container.js
+&#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; upload-pic
+&#x2502;   &#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; _upload-pic.scss
+&#x2502;   &#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; upload-pic.html
+&#x2502;   &#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; upload-pic.js
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; landing
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; login
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _login.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; login.html
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; login.js
+&#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; signup
+&#x2502;   &#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; _signup.scss
+&#x2502;   &#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; signup.html
+&#x2502;   &#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; signup.js
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; nav-bar
+&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; _navbar.scss
+&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; navbar.html
+&#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; navbar.js
+&#x2502;   &#x251C;&#x2500;&#x2500; config
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; log-config.js
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; router-config.js
+&#x2502;   &#x251C;&#x2500;&#x2500; entry.js
+&#x2502;   &#x251C;&#x2500;&#x2500; index.html
+&#x2502;   &#x251C;&#x2500;&#x2500; scss
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; lib
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; base
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _global.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _reset.scss
+&#x2502;   &#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; _var.scss
+&#x2502;   &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; layout
+&#x2502;   &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; theme
+&#x2502;   &#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; mvp
+&#x2502;   &#x2502;   &#x2502;           &#x251C;&#x2500;&#x2500; _mvp-buttons.scss
+&#x2502;   &#x2502;   &#x2502;           &#x251C;&#x2500;&#x2500; _mvp-input.scss
+&#x2502;   &#x2502;   &#x2502;           &#x2514;&#x2500;&#x2500; _mvp.scss
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.scss
+&#x2502;   &#x251C;&#x2500;&#x2500; service
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; auth-service.js
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; gallery-service.js
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; pic-service.js
+&#x2502;   &#x2514;&#x2500;&#x2500; view
+&#x2502;       &#x251C;&#x2500;&#x2500; home
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; _home.scss
+&#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; home-controller.js
+&#x2502;       &#x2502;   &#x2514;&#x2500;&#x2500; home.html
+&#x2502;       &#x2514;&#x2500;&#x2500; landing
+&#x2502;           &#x251C;&#x2500;&#x2500; _landing.scss
+&#x2502;           &#x251C;&#x2500;&#x2500; landing-controller.js
+&#x2502;           &#x2514;&#x2500;&#x2500; landing.html
+&#x251C;&#x2500;&#x2500; karma.conf.js
+&#x251C;&#x2500;&#x2500; package.json
+&#x251C;&#x2500;&#x2500; test
+&#x2502;   &#x251C;&#x2500;&#x2500; auth-service-test.js
+&#x2502;   &#x251C;&#x2500;&#x2500; create-gallery-component-test.js
+&#x2502;   &#x251C;&#x2500;&#x2500; edit-gallery-component-test.js
+&#x2502;   &#x251C;&#x2500;&#x2500; gallery-item-component-test.js
+&#x2502;   &#x2514;&#x2500;&#x2500; gallery-service-test.js
+&#x2514;&#x2500;&#x2500; webpack.config.js
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Introduction | Building a RESTful API and Angular App.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="The goal of this book is document everything I learned while building a RESTful API that is consumed by an Angular frontend.">
+        <meta name="description" content="The goal of this book is document everything I learned while building a RESTful API that is consumed by an Angular frontend. This application is by no means a fully functioning app and is intended solely to be a learning tool for understanding how to build an app using the MEAN stack.">
         <meta name="generator" content="GitBook 2.5.2">
         
         
@@ -19,10 +19,6 @@
         <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
         
     <link rel="stylesheet" href="gitbook/style.css">
-    
-        
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
-        
     
         
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
@@ -37,6 +33,8 @@
         
     
     
+    <link rel="next" href="./docs/FILESSTRUCTURE.html" />
+    
     
 
         
@@ -44,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="Introduction" data-filepath="README.md" data-basepath="." data-revision="Mon Feb 06 2017 07:59:24 GMT-0800 (PST)">
+    <div class="book" data-level="0" data-chapter-title="Introduction" data-filepath="README.md" data-basepath="." data-revision="Mon Feb 06 2017 21:44:14 GMT-0800 (PST)">
     
 
 <div class="book-summary">
@@ -68,6 +66,28 @@
                         
                         Introduction
                     </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/FILESSTRUCTURE.html">
+            
+                
+                    <a href="./docs/FILESSTRUCTURE.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        File Structure Outline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> Package.json Summary</span>
             
             
         </li>
@@ -106,7 +126,48 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="building-a-restful-api-and-angular-app">Building a RESTful API and Angular App.</h1>
-<p>The goal of this book is document everything I learned while building a RESTful API that is consumed by an Angular frontend.</p>
+<p>The goal of this book is document everything I learned while building a RESTful API that is consumed by an Angular frontend. This application is by no means a fully functioning app and is intended solely to be a learning tool for understanding how to build an app using the MEAN stack.</p>
+<p><em>The repos used to build this application can be found here:</em></p>
+<ul>
+<li><a href="https://github.com/slugbyte/slugram-backend" target="_blank">API - Backend*</a></li>
+<li><a href="https://github.com/jonathanheemstra/28-angular_auth" target="_blank">Angular - Frontend</a></li>
+</ul>
+<p><em>*Note: I did not build the slugram backend. I built a backend with similar functionality but for the sake of this resource I am going to use and reference the fully built out slugram backend.</em></p>
+<h2 id="technologies-used">Technologies Used:</h2>
+<table>
+<thead>
+<tr>
+<th><em>Backend</em></th>
+<th><em>Frontend</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MonogoDB</td>
+<td>Angular</td>
+</tr>
+<tr>
+<td>Express</td>
+<td>SCSS</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>Babel</td>
+</tr>
+<tr>
+<td>Mongoose</td>
+<td>Webpack</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td>Jasmine</td>
+</tr>
+<tr>
+<td>Chai/Mocha</td>
+<td>Karma</td>
+</tr>
+</tbody>
+</table>
 
                     
                     </section>
@@ -117,6 +178,8 @@
         </div>
 
         
+        
+        <a href="./docs/FILESSTRUCTURE.html" class="navigation navigation-next navigation-unique" aria-label="Next page: File Structure Outline"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -146,7 +209,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
